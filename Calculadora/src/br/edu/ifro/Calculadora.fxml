@@ -6,9 +6,9 @@
 <?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.collections.*?>
 
-
-<AnchorPane id="AnchorPane" prefHeight="200.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="br.edu.ifro.CalculadoraController">
+<AnchorPane id="AnchorPane" prefHeight="200.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.edu.ifro.CalculadoraController">
    <children>
       <Label layoutX="30.0" layoutY="30.0" text="Numero 01:*">
          <font>
@@ -20,9 +20,14 @@
             <Font size="18.0" />
          </font>
       </Label>
-      <TextField fx:id="txtnum01" layoutX="30.0" layoutY="60.0" prefHeight="30.0" prefWidth="100.0" />
-      <TextField fx:id="txtnum02" layoutX="250.0" layoutY="60.0" prefHeight="30.0" prefWidth="100.0" />
-      <TextField fx:id="txtsinal" layoutX="170.0" layoutY="60.0" prefHeight="30.0" prefWidth="50.0" />
+      <TextField fx:id="txtnum01" layoutX="30.0" layoutY="60.0" prefHeight="50.0" prefWidth="100.0">
+         <font>
+            <Font size="18.0" />
+         </font></TextField>
+      <TextField fx:id="txtnum02" layoutX="250.0" layoutY="60.0" prefHeight="50.0" prefWidth="100.0">
+         <font>
+            <Font size="18.0" />
+         </font></TextField>
       <Label layoutX="170.0" layoutY="30.0" text="Sinal">
          <font>
             <Font size="18.0" />
@@ -33,12 +38,39 @@
             <Font size="24.0" />
          </font>
       </Label>
-      <TextField fx:id="txtresultado" editable="false" layoutX="400.0" layoutY="60.0" prefHeight="30.0" prefWidth="150.0" />
+      <TextField fx:id="txtresultado" editable="false" layoutX="400.0" layoutY="60.0" prefHeight="50.0" prefWidth="150.0">
+         <font>
+            <Font size="18.0" />
+         </font></TextField>
       <Label layoutX="400.0" layoutY="30.0" text="Resultado:">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
-      <Button fx:id="botsoma" layoutX="210.0" layoutY="120.0" mnemonicParsing="false" onAction="#somar" prefHeight="60.0" prefWidth="200.0" text="Button" />
+      <Button fx:id="botsoma" layoutX="80.0" layoutY="120.0" mnemonicParsing="false" onAction="#soma" prefHeight="60.0" prefWidth="120.0" text="Operação">
+         <font>
+            <Font size="18.0" />
+         </font></Button>
+      <ComboBox fx:id="cboxop" layoutX="140.0" layoutY="60.0" prefHeight="50.0" prefWidth="100.0" style="-fx-font-size: 18;">
+      <items>
+        <FXCollections fx:factory="observableArrayList">
+          <String fx:value="Operação" />
+          <String fx:value="+" />
+          <String fx:value="-" />
+          <String fx:value="*" />
+          <String fx:value="/" />
+        </FXCollections>
+      </items>
+  </ComboBox>
+      <Button fx:id="botlimpa" layoutX="240.0" layoutY="120.0" mnemonicParsing="false" onAction="#limpa" prefHeight="60.0" prefWidth="120.0" text="Limpar">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Button>
+      <Button fx:id="botcancela" layoutX="400.0" layoutY="120.0" mnemonicParsing="false" onAction="#cancela" prefHeight="60.0" prefWidth="120.0" text="Cancelar">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Button>
    </children>
 </AnchorPane>
