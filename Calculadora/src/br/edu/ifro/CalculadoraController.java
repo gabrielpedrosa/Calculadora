@@ -39,32 +39,38 @@ public class CalculadoraController implements Initializable {
     
     @FXML
     private void soma(ActionEvent event){
-        double num01 = Double.parseDouble(txtnum01.getText());
-        double num02 = Double.parseDouble(txtnum02.getText());
-        if(cboxop.getValue().equals("+")){
-            double soma = num01 + num02;
-            String srtsoma = Double.toString(soma);
-            txtresultado.setText(srtsoma);
+       
+        
+        if(txtnum01.getText().equals("") || txtnum02.getText().equals("") || cboxop.getValue().equals("")){
+            JOptionPane.showMessageDialog(null, "Os campos marcados com '*' deve ser preenchidos");
         }
-        else
-            if(cboxop.getValue().equals("-")){
-                double subtr = num01 - num02;
-                String srtsubtr = Double.toString(subtr);
-            txtresultado.setText(srtsubtr);
-            }
-        else if(cboxop.getValue().equals("*")){
-                double mult = num01 * num02;
-                String srtmult= Double.toString(mult);
-            txtresultado.setText(srtmult);
-            }
-        else if(cboxop.getValue().equals("/")){
-                double div = num01 / num02;
-                String srtdiv= Double.toString(div);
-            txtresultado.setText(srtdiv);
-            }
         else{
-                JOptionPane.showMessageDialog(null, "Parâmetro Incorreto");
-        }
+            double num01 = Double.parseDouble(txtnum01.getText());
+            double num02 = Double.parseDouble(txtnum02.getText());
+                if(cboxop.getValue().equals("+")){
+                double soma = num01 + num02;
+                String srtsoma = Double.toString(soma);
+                txtresultado.setText(srtsoma);
+                }
+                else if(cboxop.getValue().equals("-")){
+                    double subtr = num01 - num02;
+                    String srtsubtr = Double.toString(subtr);
+                txtresultado.setText(srtsubtr);
+                }
+                else if(cboxop.getValue().equals("*")){
+                    double mult = num01 * num02;
+                    String srtmult= Double.toString(mult);
+                txtresultado.setText(srtmult);
+                }
+                else if(cboxop.getValue().equals("/")){
+                    double div = num01 / num02;
+                    String srtdiv= Double.toString(div);
+                txtresultado.setText(srtdiv);
+                }
+
+                
+            }
+        
     }
     
     @FXML
@@ -72,7 +78,8 @@ public class CalculadoraController implements Initializable {
         txtnum01.setText("");
         txtnum02.setText("");
         txtresultado.setText("");
-        cboxop.setValue(0);
+        cboxop.setValue("");
+       // cboxop.setPromptText("Operação");
         
     }
     
