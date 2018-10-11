@@ -16,6 +16,11 @@ public class Historico implements Serializable{
     private String calc_numero2;
     private String calc_operacao;
     private String calc_resultado;
+    
+    public String toString() {
+        return this.calc_numero1;
+    }
+    
 
     public int getId() {
         return id;

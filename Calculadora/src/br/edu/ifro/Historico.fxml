@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.collections.*?>
+<?import javafx.scene.control.cell.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="478.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.edu.ifro.HistoricoController">
+   <children>
+      <TableView fx:id="tb_historico" layoutX="12.0" layoutY="40.0" prefHeight="377.0" prefWidth="377.0">
+        <columns>
+          <TableColumn prefWidth="75.0" text="Id">
+            <cellValueFactory><PropertyValueFactory property="id" />
+            </cellValueFactory>
+          </TableColumn>
+          <TableColumn prefWidth="75.0" text="Numero 1">
+          <cellValueFactory><PropertyValueFactory property="calc_numero1" />
+            </cellValueFactory>
+          </TableColumn>
+            <TableColumn prefWidth="75.0" text="Operação">
+            <cellValueFactory><PropertyValueFactory property="calc_operacao" />
+            </cellValueFactory>
+          </TableColumn>
+            <TableColumn prefWidth="75.0" text="Numero 2">
+                <cellValueFactory><PropertyValueFactory property="calc_numero2" />
+            </cellValueFactory>
+          </TableColumn>
+            <TableColumn prefWidth="75.0" text="Resultado">
+            <cellValueFactory><PropertyValueFactory property="calc_resultado" />
+            </cellValueFactory>
+          </TableColumn>
+        </columns>
+      </TableView>
+      <MenuBar prefHeight="29.0" prefWidth="400.0">
+         <menus>
+            <Menu mnemonicParsing="false" text="Ferramentas">
+               <items>
+                  <MenuItem fx:id="calculadora" mnemonicParsing="false" onAction="#calculadora" text="Calculadora" />
+               </items>
+            </Menu>
+            <Menu mnemonicParsing="false" text="Ajuda">
+               <items>
+                  <MenuItem mnemonicParsing="false" text="Sobre" />
+               </items>
+            </Menu>
+         </menus>
+      </MenuBar>
+      <Button fx:id="botlimpa" layoutX="305.0" layoutY="425.0" mnemonicParsing="false" onAction="#limpar" prefHeight="39.0" prefWidth="84.0" text="Limpar">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Button>
+      <Button fx:id="botvolta" layoutX="14.0" layoutY="425.0" mnemonicParsing="false" onAction="#voltar" prefHeight="39.0" prefWidth="84.0" text="Voltar">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>

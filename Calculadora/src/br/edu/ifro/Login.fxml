@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.shape.*?>
+<?import com.jfoenix.controls.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="root" prefHeight="425.0" prefWidth="448.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.edu.ifro.controler.LoginController">
+   <children>
+      <Label layoutX="145.0" layoutY="55.0" text="BEM VINDO">
+         <font>
+            <Font size="30.0" />
+         </font>
+      </Label>
+      <Label layoutX="110.0" layoutY="109.0" text="Sistema Escolar Foperoma">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <Label layoutX="72.0" layoutY="162.0" text="Realize o login">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <TextField fx:id="txtlogin" layoutX="72.0" layoutY="209.0" prefHeight="45.0" prefWidth="303.0" promptText="USUARIO">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="txtsenha" layoutX="74.0" layoutY="268.0" prefHeight="45.0" prefWidth="303.0" promptText="SENHA">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </TextField>
+      <PasswordField fx:id="pwsenha" layoutX="74.0" layoutY="268.0" prefHeight="45.0" prefWidth="303.0" promptText="SENHA">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </PasswordField>
+      <CheckBox fx:id="ckboxsenha" layoutX="74.0" layoutY="343.0" mnemonicParsing="false" onMouseClicked="#MostrarSenha">
+         <font>
+            <Font size="11.0" />
+         </font>
+      </CheckBox>
+      <Label layoutX="95.0" layoutY="336.0" text="Mostrar senha">
+         <font>
+            <Font size="20.0" />
+         </font></Label>
+      <Button fx:id="btlogin" layoutX="288.0" layoutY="329.0" mnemonicParsing="false" onAction="#login" text="LOGIN">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>
