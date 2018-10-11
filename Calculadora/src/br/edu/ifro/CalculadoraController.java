@@ -39,8 +39,6 @@ public class CalculadoraController implements Initializable {
     
     @FXML
     private void soma(ActionEvent event){
-       
-        
         if(txtnum01.getText().equals("") || txtnum02.getText().equals("") || cboxop.getValue().equals("")){
             JOptionPane.showMessageDialog(null, "Os campos marcados com '*' deve ser preenchidos");
         }
