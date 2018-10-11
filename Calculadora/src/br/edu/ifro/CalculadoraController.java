@@ -5,6 +5,7 @@
  */
 package br.edu.ifro;
 
+import br.edu.ifro.model.Historico;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
@@ -13,6 +14,10 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
 import javax.swing.JOptionPane;
 
 /**
@@ -45,28 +50,45 @@ public class CalculadoraController implements Initializable {
         else{
             double num01 = Double.parseDouble(txtnum01.getText());
             double num02 = Double.parseDouble(txtnum02.getText());
-                if(cboxop.getValue().equals("+")){
+            String operacao = cboxop.getValue().toString();
+            String srtnum01 = Double.toString(num01);
+            String srtnum02 = Double.toString(num02);
+            EntityManagerFactory emf = Persistence.createEntityManagerFactory("calculadora");
+            EntityManager em = emf.createEntityManager();
+            Historico h = new Historico();
+            h.setCalc_numero1(srtnum01);
+            h.setCalc_numero2(srtnum02);
+            h.setCalc_operacao(operacao);
+                if(operacao.equals("+")){
                 double soma = num01 + num02;
                 String srtsoma = Double.toString(soma);
+                h.setCalc_resultado(srtsoma);
                 txtresultado.setText(srtsoma);
                 }
-                else if(cboxop.getValue().equals("-")){
-                    double subtr = num01 - num02;
-                    String srtsubtr = Double.toString(subtr);
+                else if(operacao.equals("-")){
+                double subtr = num01 - num02;
+                String srtsubtr = Double.toString(subtr);
+                h.setCalc_resultado(srtsubtr);
                 txtresultado.setText(srtsubtr);
                 }
-                else if(cboxop.getValue().equals("*")){
+                else if(operacao.equals("*")){
                     double mult = num01 * num02;
                     String srtmult= Double.toString(mult);
+                    h.setCalc_resultado(srtmult);
                 txtresultado.setText(srtmult);
                 }
-                else if(cboxop.getValue().equals("/")){
+                else if(operacao.equals("/")){
                     double div = num01 / num02;
                     String srtdiv= Double.toString(div);
+                    h.setCalc_resultado(srtdiv);
                 txtresultado.setText(srtdiv);
                 }
 
-                
+            em.getTransaction().begin();
+            em.persist(h);
+            em.getTransaction().commit();
+            
+            //limpa(event);
             }
         
     }
@@ -83,7 +105,8 @@ public class CalculadoraController implements Initializable {
     
     @FXML
     private void cancela(ActionEvent e){
-        
+       // Stage stage = (Stage) cancela.getScene().getWindow();
+        //stage.close();
     }
 
     /**
